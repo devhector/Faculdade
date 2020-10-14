@@ -32,11 +32,6 @@ int main()
 
 
     }
-    
-
-    string = rmName(string, &count);
-
-
 
     free(string);
     return 0;
