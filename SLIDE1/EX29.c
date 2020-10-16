@@ -76,49 +76,6 @@ char *addName(char *str, int *count){
     return str;
 }
 
-char *rmName(char *str, int *count){
-    int i, j = 0, aux = 0, pos;
-
-    printf("\nDigite o numero do nome que deseja retirar: ");
-    scanf("%d", &i);
-
-    while(str[j] != '\0'){
-        if(str[j] == ','){
-            if(aux == (i - 1)){
-                break;
-            }
-        else aux++;
-        }
-        j++;
-    }
-    pos = j;
-    aux = 0;
-    j++;
-
-    while(str[j] != ','){
-        aux++;
-        j++;
-    }
-
-    while(str[j] != '\0'){
-        str[pos] = str[j];
-        pos++;
-        j++;
-    }
-
-    str[pos] = '\0';
-
-    *count -= aux;
-
-    str = realloc(str, (*count + 1) * sizeof(char));
-    if(!str){
-        printf("ERROR MEMÓRIA INSUFICIENTE! \n");
-        return 0;
-    }    
-
-
-    return str;
-}
 
 void print(char *str){
     int i = 0, j = 1;
@@ -137,4 +94,53 @@ void print(char *str){
     }
     
     printf("\n");
+}
+
+char *rmName(char *str, int *count){
+    int i, j = 0, aux = 0, pos;
+
+    print(str);
+
+    printf("\nDigite o numero do nome que deseja retirar: ");
+    scanf("%d", &i);
+
+    while(str[j] != '\0'){
+        if(str[j] == ','){
+            if(aux == (i - 1)){
+                break;
+            }
+        else aux++;
+        }
+        j++;
+    }
+    pos = j;
+    aux = 0;
+    j++;
+
+    while(str[j] != ',' && j < *count){
+        aux++;
+        j++;
+    }
+    
+    if(j < *count){
+        while(str[j] != '\0'){
+            str[pos] = str[j];
+            pos++;
+            j++;
+        }
+        
+        str[pos] = '\0';
+    }
+
+    *count -= aux;
+
+    str = realloc(str, (*count + 1) * sizeof(char));
+    if(!str){
+        printf("ERROR MEMÓRIA INSUFICIENTE! \n");
+        return 0;
+    }    
+
+    str[*count - 1] = '\0';
+
+    return str;
 }
