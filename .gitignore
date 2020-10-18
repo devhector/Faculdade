@@ -51,3 +51,16 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+SLIDE1/vs.c
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/
+EX28.1
+SLIDE1/EX28
+SLIDE1/tuzinPbuffer.c
+SLIDE1/tuzinPbuffer
+SLIDE1/vs
+SLIDE1/EX29
+
+SLIDE1/EX28.1.c
+SLIDE1/EX28.2.c

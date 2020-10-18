@@ -11,6 +11,8 @@ int main()
 {
     char *string = (char *) malloc(sizeof(char));
 
+    string[0] = '\0';
+
     int count = 0, i;
 
     while (1)
