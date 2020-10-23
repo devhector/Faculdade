@@ -6,19 +6,40 @@ void *realocar(void *ponteiro, size_t tam);
 
 int main()
 {
-    int *vet = (int *)malloc(sizeof(vet));
+    int *vet = (int *)malloc(sizeof(int));
+    int op, i;
+    char *str = (char *)malloc(sizeof(char)), aux[15];
 
-    vet[0] = 1;
+    printf("\nDigite o tamanho do vetor: ");
+    scanf("%d", &op);
 
-    vet = (int *) realocar(vet, 3 * sizeof(vet));
+    vet = (int *)realocar(vet, sizeof(int) * op);
 
-    
-    vet[1] = 2;
-    vet[2] = 3;
+    for(i = 0; i < op; i++){
+        printf("\nDigite o valor da pos %d: ", i + 1);
+        scanf("%d", &vet[i]);
+    }
+    setbuf(stdin, NULL);
 
-    printf("%d %d %d\n", vet[0],vet[1],vet[2]);
+    printf("\nDigite um nome: ");
+    fgets(aux, 15, stdin);
+
+    str = (char *)realocar(str, strlen(aux) * sizeof(aux));
+
+    strcpy(str, aux);
+
+    printf("\n");
+
+    for(i = 0; i < op; i++)
+        printf("%d - %s\n", vet[i], str);
+
+    printf("\n");
+    printf("\n");
+ 
 
     free(vet);
+    free(str);
+
     
     return 0;
 }
@@ -26,7 +47,7 @@ int main()
 void *realocar(void *ponteiro, size_t tam){
     void *buffer;
 
-    buffer = malloc(tam * sizeof(buffer));
+    buffer = malloc(tam * sizeof(ponteiro));
 
     memcpy(buffer, ponteiro, tam);
     free(ponteiro);
