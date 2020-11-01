@@ -42,7 +42,10 @@ void pop(int *vet, int op){
 
                 for(k = j; k < tmp; k++){
 
-                    vet[k] = vet[k + 1];
+                    if((k + 1) == tmp)
+                        vet[k] = vet[k];
+                    else
+                        vet[k] = vet[k + 1];
 
                 }
 
