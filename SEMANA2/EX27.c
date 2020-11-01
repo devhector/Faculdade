@@ -9,7 +9,7 @@ int main()
     int *vet = (int *)malloc(sizeof(int));
     int op, i;
     char *str = (char *)malloc(sizeof(char)), aux[15];
-
+    str[0] = '\0';
     printf("\nDigite o tamanho do vetor: ");
     scanf("%d", &op);
 
@@ -47,9 +47,19 @@ int main()
 void *realocar(void *ponteiro, size_t tam){
     void *buffer;
 
-    buffer = malloc(tam * sizeof(ponteiro));
+    if(tam == 0){
+        free(ponteiro);
+        return NULL;
+    }
 
-    memcpy(buffer, ponteiro, tam);
+    buffer = malloc((tam * sizeof(ponteiro)) + 1);
+    if(!buffer)
+        return NULL;
+
+    if(ponteiro)
+        memcpy(buffer, ponteiro, (tam * sizeof(ponteiro)) + 1);
+
+
     free(ponteiro);
     return buffer;
 }

@@ -1,0 +1,30 @@
+1) (e)
+
+2) Os dois terão a saída iguais: 
+-----------
+| 1       |
+| 2       |
+| 3       |
+| 4       |
+-----------
+
+No trecho 1 está sendo usado a notação de colchetes para percorrer a matriz. No trecho 2 usado a aritmética de ponteiros, a variável "p" recebe o endereço inicial da matriz, como os dados são guardados em sequência na memória, ele percorre todo o tamanho da matriz.
+
+3)
+
+a) *p = 3
+b) -2
+c) 3
+d) 6
+
+4) 000003E8 7 5 15 9
+
+5) a
+
+6) a) passa para a posição subsequente
+d) pelo teste, ele não influência no valor contido naquele endereço, mas na minha percepção, teria que acrescentar + 1 ao valor. 
+
+10) a) A função retorna o quadrado do número passado.
+b) 100
+
+

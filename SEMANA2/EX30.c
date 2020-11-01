@@ -64,10 +64,10 @@ int main()
                 if(nCol < 1 || nCol > col)
                     printf("\nDigite um valor valido entre 1 e %d: ", col);
             } while (nCol < 1 || nCol > col);
-            
-           // vetor = (int *)malloc(sizeof(int) * lin);
+
             vetor = colunaMatriz(matriz, lin, col, (nCol - 1));
             imprimeVetor(vetor, lin); 
+            free(vetor);
             printf("\nAperte enter para continuar...");
             getchar();
         }
@@ -83,7 +83,6 @@ int main()
             break;
     }
     liberaMatriz(matriz, lin);
-    free(vetor);
     return 0;
 }
 
