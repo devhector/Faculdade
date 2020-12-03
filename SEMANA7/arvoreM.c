@@ -53,6 +53,8 @@ int insert(treeNode **root, int data){
         node->nodeRight = NULL;
         node->nodeLeft = NULL;
 
+        root = &node;
+
         return 1;
 
     } else if((*root)->data > data){
@@ -85,7 +87,6 @@ int insert(treeNode **root, int data){
         return 0;
 
     }
-
 
 }
 
@@ -198,6 +199,9 @@ int balance(treeNode **node){
 int main(){
 
     treeNode **root = NULL;
+    treeNode *node = NULL;
+
+    root = &node;
 
     insert(root, 9);
     insert(root, 7);
