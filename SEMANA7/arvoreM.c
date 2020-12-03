@@ -11,7 +11,7 @@ typedef struct node{
 
 
 treeNode **clear(treeNode **node);
-int insert(treeNode **node, int data);
+int insert(treeNode **root, int data);
 int height(treeNode *node);
 int balanceFactor(treeNode *node);
 int leftBalance(treeNode **node);
@@ -35,29 +35,31 @@ treeNode **clear(treeNode **node){
     return NULL;
 }
 
-int insert(treeNode **node, int data){
+int insert(treeNode **root, int data){
 
-    if (node == NULL){
+    if (*root == NULL){
 
-        (*node) = (treeNode *)malloc(sizeof(treeNode));
-        if((*node) == NULL){
+        treeNode *node = NULL;
+
+        node = (treeNode *)malloc(sizeof(treeNode));
+        if(node == NULL){
 
             printf("\nErro de memoria!\n");
             exit(1);
 
         }
 
-        (*node)->data = data;
-        (*node)->nodeRight = NULL;
-        (*node)->nodeLeft = NULL;
+        node->data = data;
+        node->nodeRight = NULL;
+        node->nodeLeft = NULL;
 
         return 1;
 
-    } else if((*node)->data > data){
+    } else if((*root)->data > data){
 
-        if(insert(&(*node)->nodeLeft, data)){
+        if(insert(&(*root)->nodeLeft, data)){
 
-            return !balance(node);
+            return !balance(root);
 
         } else{
             
@@ -66,11 +68,11 @@ int insert(treeNode **node, int data){
         }
         
 
-    } else if((*node)->data > data){
+    } else if((*root)->data > data){
 
-        if(insert(&(*node)->nodeRight, data)){
+        if(insert(&(*root)->nodeRight, data)){
 
-            return !balance(node);
+            return !balance(root);
 
         } else{
 
