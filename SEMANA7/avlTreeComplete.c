@@ -21,30 +21,9 @@ int EhArvoreArvl(treeNode **root)
         return 1;
 }
 
-
 int main(){
 
     treeNode **root = createAvlTree();
-
-
-/*
-    insert(root, 9);
-    insert(root, 7);
-    insert(root, 8);
-    insert(root, 4);
-    insert(root, 11);
-    insert(root, 10);
-    insert(root, 12);
-    insert(root, 5);
-    insert(root, 3);
-    insert(root, 2);
-    insert(root, 1);
-    insert(root, 13);
-    insert(root, 15);
-    insert(root, 17);
-    insert(root, 14);
-
-*/
 
     srand(time(0));
 
@@ -59,7 +38,7 @@ int main(){
 
     for(i = 0; i < op; i++){
 
-        numero = rand();
+        numero = rand()%50;
         insert(root, numero);
         printf(" %d ", numero);
         if(i != op - 1) printf("-");
@@ -78,10 +57,33 @@ int main(){
 
     print(*root);
 
-    printf("\n");
-    
+
+    printf("\nDigite quantos numeros para remover: ");
+    scanf("%d", &op);
+
+    i = 0;
+
+    while(op != i){
+
+        printf("\nDigite o numero para excluir: ");
+        scanf("%d", &numero);
+
+        if(removeNode(root, numero)) printf("\nRemovido!\n");
+        else printf("\nNao foi possivel remover\n");
+
+        print(*root);
+
+        if(EhArvoreArvl(root)) printf("\nEh arvore\n");
+        else printf("\nNao eh arvore!\n");
+
+        printf("\n");
+
+        i++;
+    }
 
     treeFree(root);
+
+
 
     return 0;
 }
