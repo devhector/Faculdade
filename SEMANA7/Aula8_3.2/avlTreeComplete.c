@@ -27,7 +27,7 @@ int main(){
 
     srand(time(0));
 
-    int op, i, numero;
+    int op, i, numero, op2;
 
     printf("\n--------------------------------------------------------------\n");
     printf("\n-------------------------ARVORE AVL---------------------------\n");
@@ -59,11 +59,15 @@ int main(){
 
 
     printf("\nDigite quantos numeros para remover: ");
-    scanf("%d", &op);
+    do{
+
+        scanf("%d", &op2);
+
+    }while(op2 < 0 && op < op2);
 
     i = 0;
 
-    while(op != i){
+    while(op2 != i){
 
         printf("\nDigite o numero para excluir: ");
         scanf("%d", &numero);
