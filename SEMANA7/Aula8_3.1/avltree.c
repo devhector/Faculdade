@@ -199,15 +199,17 @@ int balance(treeNode **root){
 }
 
 
-void print(treeNode *node){
+void print(treeNode *node, int *i){
 
     if(node == NULL) return;
 
-        print(node->nodeLeft);
+        print(node->nodeLeft, i);
 
-        printf("%d - ", node->data);
+        printf(" %d ", node->data);
+        if((*i + 1) % 3 == 0) printf("\n");
+        *i = *i + 1;
 
-        print(node->nodeRight);
+        print(node->nodeRight, i);
  
 }
 

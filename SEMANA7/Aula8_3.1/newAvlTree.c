@@ -27,60 +27,78 @@ int main(){
     treeNode **root = createAvlTree();
 
 
-/*
-    insert(root, 9);
-    insert(root, 7);
-    insert(root, 8);
-    insert(root, 4);
-    insert(root, 11);
-    insert(root, 10);
-    insert(root, 12);
-    insert(root, 5);
-    insert(root, 3);
-    insert(root, 2);
-    insert(root, 1);
-    insert(root, 13);
-    insert(root, 15);
-    insert(root, 17);
-    insert(root, 14);
-
-*/
-
     srand(time(0));
 
-    int op, i, numero;
+    int op, i, num, op2, num2;
 
-    printf("\n--------------------------------------------------------------\n");
-    printf("\n-------------------------ARVORE AVL---------------------------\n");
-    printf("\n--------------------------------------------------------------\n");
+    printf("\n##############################################################\n");
+    printf("\n#------------------------ARVORE AVL--------------------------#\n");
+    printf("\n##############################################################\n");
 
     printf("\nDigite o numero de nos: ");
     scanf("%d", &op);
 
+    printf("\nDeseja limintar o intervalo de 0 a um numero especifico?\n");
+    printf("1 - Sim | 2 - Nao\n");
+    
+    do
+    {
+        printf("Digite: ");
+        scanf("%d", &op2);
+
+        if(op2 != 1 && op2 != 2) printf("\nOpcao invalida\n");
+        
+    } while (op2 != 1 && op2 != 2);
+    
+    if(op2 == 1){
+        
+        do{
+            
+            printf("\nDigite o numero limite: ");
+            scanf("%d", &num2);
+
+            if(num2 < 0)printf("\nNumero invalido\n");
+
+        }while (num2 < 0);
+        
+
+    }
+
+    printf("\n");
+
     for(i = 0; i < op; i++){
 
-        numero = rand();
-        insert(root, numero);
-        printf(" %d ", numero);
-        if(i != op - 1) printf("-");
+        if(op2 == 1){
+
+            num = rand() % num2;
+
+        }else{
+
+            num = rand();
+
+        }
+
+        insert(root, num);
+        printf(" %d ", num);
         if((i + 1) % 3 == 0) printf("\n");
 
     }
 
-
+    printf("\n");
 
     printf("\nAltura: %d\n", height(*root));
 
-    printf("\n");
 
     if(EhArvoreArvl(root)) printf("\nEh arvore\n");
     else printf("\nNao eh arvore!\n");
 
-    print(*root);
+    printf("\n");
+
+    i = 0;
+    print(*root, &i);
 
     printf("\n");
     
-
     treeFree(root);
 
     return 0;
