@@ -24,3 +24,4 @@ void SimpleRotationRight(treeNode **root);
 void print(treeNode *node);
 void nodeFree(treeNode *node);
 int findElement(treeNode **root, int data);
+void printTreeTwoD(treeNode *node, int aux);

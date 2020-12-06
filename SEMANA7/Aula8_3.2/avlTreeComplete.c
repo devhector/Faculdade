@@ -106,7 +106,7 @@ int main(){
 
 void menu(treeNode **root, int option){
 
-    int op, num, i, number;
+    int op, num, i, number, aux;
 
     srand(time(0));
 
@@ -207,9 +207,13 @@ void menu(treeNode **root, int option){
         }
 
     }else if(option == 4){
+        
+        aux = 0;
 
         printf("\n");
-        print(*root);
+        printf("\n");
+        
+        printTreeTwoD(*root, aux);
 
     }
 }

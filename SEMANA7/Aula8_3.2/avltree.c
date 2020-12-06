@@ -212,6 +212,34 @@ void print(treeNode *node){
  
 }
 
+//printTreeTwoD passada pelo Nicoletti
+void printTreeTwoD(treeNode *node, int aux){
+    
+    int i;
+
+    if (node == NULL){
+
+        return;
+
+    }
+
+    aux += 1;
+    printTreeTwoD(node->nodeRight, aux);
+   
+    for (i = 0; i < aux; i++){
+
+        printf("\t");
+
+    }
+
+    printf("%d\n", node->data);
+
+    printTreeTwoD(node->nodeLeft, aux);
+
+    return;
+
+}
+
 treeNode *smaller(treeNode *node){
     treeNode *aux = node;
     treeNode *oneAux = node->nodeLeft;
