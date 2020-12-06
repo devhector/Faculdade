@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "avltree.h"
 
+
 treeNode **createAvlTree(){
 
     treeNode **root = (treeNode **)malloc(sizeof(treeNode *));
@@ -205,7 +206,7 @@ void print(treeNode *node){
 
         print(node->nodeLeft);
 
-        printf("%d - ", node->data);
+        printf(" %d ", node->data);
 
         print(node->nodeRight);
  
@@ -301,5 +302,33 @@ int removeNode(treeNode **root, int data){
     }
 
     return 1;
+
+}
+
+int findElement(treeNode **root, int data){
+    
+    treeNode *node = *root;
+
+    if(node == NULL){
+
+        return 0;
+
+    }
+
+    if(node->data == data){
+        
+        return 1;
+
+    }else if(node->data < data){
+
+        return findElement(&node->nodeRight, data);
+
+    } else if(node->data > data) {
+
+        return findElement(&node->nodeLeft, data); 
+
+    }
+
+    return 0;
 
 }
