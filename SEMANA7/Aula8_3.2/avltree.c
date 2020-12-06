@@ -200,18 +200,6 @@ int balance(treeNode **root){
 }
 
 
-void print(treeNode *node){
-
-    if(node == NULL) return;
-
-        print(node->nodeLeft);
-
-        printf(" %d ", node->data);
-
-        print(node->nodeRight);
- 
-}
-
 //printTreeTwoD passada pelo Nicoletti
 void printTreeTwoD(treeNode *node, int aux){
     
