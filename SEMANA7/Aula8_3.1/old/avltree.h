@@ -21,7 +21,5 @@ int balance(treeNode **root);
 void treeFree(treeNode **root);
 void SimpleRotationLeft(treeNode **root);
 void SimpleRotationRight(treeNode **root);
-void print(treeNode *node);
+void print(treeNode *node, int *i);
 void nodeFree(treeNode *node);
-int findElement(treeNode **root, int data);
-void printTreeTwoD(treeNode *node, int aux);

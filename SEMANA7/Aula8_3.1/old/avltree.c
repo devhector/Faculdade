@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "avltree.h"
 
-
 treeNode **createAvlTree(){
 
     treeNode **root = (treeNode **)malloc(sizeof(treeNode *));
@@ -200,44 +199,18 @@ int balance(treeNode **root){
 }
 
 
-void print(treeNode *node){
+void print(treeNode *node, int *i){
 
     if(node == NULL) return;
 
-        print(node->nodeLeft);
+        print(node->nodeLeft, i);
 
         printf(" %d ", node->data);
+        if((*i + 1) % 3 == 0) printf("\n");
+        *i = *i + 1;
 
-        print(node->nodeRight);
+        print(node->nodeRight, i);
  
-}
-
-//printTreeTwoD passada pelo Nicoletti
-void printTreeTwoD(treeNode *node, int aux){
-    
-    int i;
-
-    if (node == NULL){
-
-        return;
-
-    }
-
-    aux += 1;
-    printTreeTwoD(node->nodeRight, aux);
-   
-    for (i = 0; i < aux; i++){
-
-        printf("\t");
-
-    }
-
-    printf("%d\n", node->data);
-
-    printTreeTwoD(node->nodeLeft, aux);
-
-    return;
-
 }
 
 treeNode *smaller(treeNode *node){
@@ -330,33 +303,5 @@ int removeNode(treeNode **root, int data){
     }
 
     return 1;
-
-}
-
-int findElement(treeNode **root, int data){
-    
-    treeNode *node = *root;
-
-    if(node == NULL){
-
-        return 0;
-
-    }
-
-    if(node->data == data){
-        
-        return 1;
-
-    }else if(node->data < data){
-
-        return findElement(&node->nodeRight, data);
-
-    } else if(node->data > data) {
-
-        return findElement(&node->nodeLeft, data); 
-
-    }
-
-    return 0;
 
 }

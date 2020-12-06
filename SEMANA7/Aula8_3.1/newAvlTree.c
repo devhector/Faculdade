@@ -38,8 +38,8 @@ int main(){
     printf("\nDigite o numero de nos: ");
     scanf("%d", &op);
 
-    printf("\nDeseja limintar o intervalo de 0 a um numero especifico?\n");
-    printf("1 - Sim | 2 - Nao\n");
+    printf("\nDeseja limitar o intervalo de 0 a um numero especifico?\n");
+    printf("1 - Sim | 2 - Nao\n\n");
     
     do
     {
@@ -95,7 +95,7 @@ int main(){
     printf("\n");
 
     i = 0;
-    print(*root, &i);
+    printTreeTwoD(*root, i);
 
     printf("\n");
     
