@@ -212,8 +212,10 @@ void menu(treeNode **root, int option){
 
         printf("\n");
         printf("\n");
-        
+
         printTreeTwoD(*root, aux);
+
+        printf("\nAltura: %d\n", height(*root));
 
     }
 }
