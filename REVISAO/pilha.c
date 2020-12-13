@@ -9,9 +9,11 @@ typedef struct stack{
 }Stack;
 
 int isEmpty(Stack **varStack);
-void push(Stack **varStack, int data);
 int pop(Stack **varStack, int *data);
+void push(Stack **varStack, int data);
 void showTop(Stack **varStack);
+void stackFree(Stack **varStack);
+void elementFree(Stack *elementStack);
 Stack **createStack();
 
 int main(){
@@ -65,7 +67,7 @@ int main(){
         
     } while (op != 0);
     
-
+    stackFree(varStack);
 
     return 0;
 }
@@ -154,4 +156,24 @@ Stack **createStack(){
     *varStack = NULL;
 
     return varStack;
+}
+
+void stackFree(Stack **varStack){
+
+    if(varStack == NULL) return;
+
+    elementFree(*varStack);
+
+    free(varStack);
+
+}
+
+void elementFree(Stack *elementStack){
+
+    if(elementStack == NULL) return;
+
+    elementFree(elementStack->next);
+
+    free(elementStack);
+
 }
