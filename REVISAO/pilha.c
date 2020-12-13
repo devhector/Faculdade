@@ -10,6 +10,7 @@ typedef struct stack{
 
 int isEmpty(Stack **varStack);
 void push(Stack **varStack, int data);
+int pop(Stack **varStack, int *data);
 
 int main(){
 
@@ -54,5 +55,25 @@ void push(Stack **varStack, int data){
         varStack = &elementStack;
 
     }
-    
+
+}
+
+int pop(Stack **varStack, int *data){
+
+    Stack *aux;
+
+    if(!isEmpty(varStack)){
+
+        aux = *varStack;
+        varStack = aux->next;
+        *data = aux->number;
+
+        free(aux);
+
+        return 1;
+
+    }
+
+    return 0;
+
 }
