@@ -9,6 +9,7 @@ typedef struct stack{
 }Stack;
 
 int isEmpty(Stack **varStack);
+void push(Stack **varStack, int data);
 
 int main(){
 
@@ -32,5 +33,26 @@ int isEmpty(Stack **varStack){
     }
 
     return 0;
+
+}
+
+void push(Stack **varStack, int data){
+
+    Stack *elementStack = (Stack *)malloc(sizeof(Stack));
+
+    if(isEmpty(varStack)){
+
+        varStack = &elementStack;
+        elementStack->number = data;
+        elementStack->next = NULL;
+
+
+    }else{
+
+        elementStack->next = *varStack;
+        elementStack->number = data;
+        varStack = &elementStack;
+
+    }
     
 }
