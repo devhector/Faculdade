@@ -14,6 +14,7 @@ void push(Stack **varStack, int data);
 void showTop(Stack **varStack);
 void stackFree(Stack **varStack);
 void elementFree(Stack *elementStack);
+void printStack(Stack **varStack);
 Stack **createStack();
 
 int main(){
@@ -61,7 +62,7 @@ int main(){
 
         }else if(op == 4){
 
-            printf("\nNão implementado\n");
+            printStack(varStack);
 
         }
         
@@ -175,5 +176,25 @@ void elementFree(Stack *elementStack){
     elementFree(elementStack->next);
 
     free(elementStack);
+
+}
+
+void printStack(Stack **varStack){
+
+    if(varStack == NULL) return;
+
+    Stack *aux = *varStack;
+
+    printf("\n--------------\n");
+
+    while (aux != NULL){
+        
+        printf("\n%d", aux->number);
+        aux = aux->next;
+
+    }
+    
+    printf("\n\n--------------\n");
+
 
 }
